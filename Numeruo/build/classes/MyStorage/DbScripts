@@ -1,0 +1,55 @@
+create table NumeruoUser
+(
+userName varchar(50) constraint pkNumeruoUserUserName primary key,
+userPassword varchar(15),
+userDepartment varchar(100),
+userFullName varchar(150)
+)
+
+create table Clients(
+userName varchar(50) constraint pkClientsUserName primary key,
+clientName varchar(150),
+clientAddress varchar(200),
+clientPhone varchar(30)
+)
+
+
+create table Items(
+ itemId int constraint pkItemsItemId primary key,
+ itemName varchar(100),
+ itemDescription varchar(1000),
+ itemPreviewUrl varchar(400),
+ unitPrice varchar(200),
+ quantityAvailable int,
+ valueAddedTax int
+)
+insert into Items values(?,?,?,?,?,?,?)
+insert into Items values(1,'pepsi','cool refreshing drink','hall','30.00',6,6);
+create table OrderItems(
+ orderItemsId int constraint pkOrderItemsOrderItemsId primary key,
+ salesId int,
+ itemId int,
+ quantityOrdered int,
+ totalPrice varchar(500),
+ foreign key(itemId) references Items(itemId),
+ foreign key(salesId) references Sales(salesId)
+)
+
+create table Sales(
+ salesId int constraint pkSalesSalesId primary key,
+ overAllPrice varchar(5000),
+ orderStatus varchar(2000),
+ clientUserName varchar(150),
+ salesPersonnel varchar(50),
+ dateOfTransaction varchar(500),
+ foreign key(salesPersonnel) references NumeruoUser(userName),
+ foreign key(clientUserName) references Clients(userName)
+)
+
+//inputing data
+insert into NumeruoUser values('covenantsales','chukwudi','Sales Department','Covenant');
+
+update NumeruoUser set userDepartment='salesDepartment' where userName='covenant'
+
+insert into NumeruoUser values('covenantWare','chukwudi','WareHouse Department','Covenant Ware')
+insert into NumeruoUser values('covenantManager','chukwudi','Managerial Department','Covenant Manager')

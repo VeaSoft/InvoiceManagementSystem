@@ -1,0 +1,11 @@
+SalesDepartment:
+user name: covenantsales;
+password:chukwudi;
+
+WarehouseDepartment:
+user name: covenantWare;
+password: chukwudi;
+
+ManagerialDepartment:
+username: covenantManager;
+password: chukwudi;
